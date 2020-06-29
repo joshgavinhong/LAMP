@@ -87,7 +87,7 @@ resource "ibm_compute_vm_instance" "vm" {
   disks                    = ["${var.disk_size}"]
   dedicated_acct_host_only = true
   local_disk               = false
-  ssh_key_ids              = ["${ibm_compute_ssh_key.ssh_key.id}"]
+  ssh_key_ids              = ["${ibm_compute_ssh_key.ssh_key.public_key}"]
   tags                     = ["${var.tags}"]
   user_metadata            = "${file("install.yml")}"
 }
